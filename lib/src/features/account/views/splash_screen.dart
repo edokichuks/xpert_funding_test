@@ -1,5 +1,5 @@
 // Flutter imports:
-import 'package:xpert_funding_test/l10n/l10n_exports.dart';
+import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import 'package:xpert_funding_test/src/core/utils/app_utils_exports.dart';
 import 'package:xpert_funding_test/src/general_widgets/faq_widget.dart';
 import 'package:flutter/material.dart';
@@ -44,23 +44,39 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
             colors: [AppColors.primary100, AppColors.neutral700],
           ),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(context.l10n.welcome(context.l10n.appName)),
-            Text('PROD Template with theme setup and mutltilingual support'),
-            Center(child: FlutterLogo(size: 100.r)),
-            FaqWidget(
-              title: 'What support does DitchRide provide to drivers?',
-              faq:
-                  'Booking is simple! Download our app, create an account, and search for available routes. Choose your preferred date, time, and destination, then confirm your booking.',
-            ),
-            FaqWidget(
-              title: 'How much can I earn with DitchRide?',
-              faq:
-                  'Yes, you can cancel or reschedule your ride through the app. Please refer to our cancellation policy for details on refunds and rescheduling fees.',
-            ),
-          ],
+        child: SingleChildScrollView(
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                height: 274.h,
+
+                width: 343.w,
+                padding: EdgeInsets.all(16.r),
+
+                decoration: BoxDecoration(
+                  // color: Colors.white,
+                  borderRadius: BorderRadius.circular(14.r),
+                  border: GradientBoxBorder(
+                    gradient: LinearGradient(
+                      colors: [
+                        Color(0xffFFFFFF).withValues(alpha: 0.3),
+                        Color(0xffFFFFFF).withValues(alpha: 0.0),
+                      ],
+                    ),
+                    width: 1.14,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color(0xff00000040).withValues(alpha: 0.25),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

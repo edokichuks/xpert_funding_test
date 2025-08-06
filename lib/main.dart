@@ -1,8 +1,6 @@
 // Flutter imports:
 
 // Flutter imports:
-import 'package:xpert_funding_test/l10n/arb/app_localizations.dart';
-import 'package:xpert_funding_test/l10n/l10n_exports.dart';
 import 'package:xpert_funding_test/src/core/config/exceptions/overall_app_error.dart';
 
 import 'package:flutter/material.dart';
@@ -96,7 +94,7 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
           onPointerDown: (event) {},
           child: MaterialApp(
             navigatorKey: navigatorKey,
-            title: context.l10n.appName, //'Clean Flutter App',
+            title: 'Expert Funding Test',
             debugShowCheckedModeBanner: false,
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
@@ -106,16 +104,9 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
             ),
             initialRoute: AppRouter.splashScreen,
             onGenerateRoute: AppRouter.onGenerateRoute, //!Localization setup
+
             /// Call the provideer to get the locale
             ///locale: viewModel.locale ?? const Locale('en'),
-            locale: const Locale('en'),
-            supportedLocales: AppLocalizations.supportedLocales,
-            localizationsDelegates: const [
-              AppLocalizations.delegate,
-              AppAndLocalizationDelegate(),
-              AppIOSLocalizationDelegate(),
-              AppWidgetLocalizationDelegate(),
-            ],
           ),
         );
       },
