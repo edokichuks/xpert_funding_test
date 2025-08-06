@@ -69,12 +69,12 @@ flutter:
     - assets/images/png/
     - assets/images/svg/
 
-  fonts:
-    - family: Mona
-      fonts:
-        # - asset: assets/fonts/
-        - asset: assets/fonts/mona-sans-bold.ttf
-        - asset: assets/fonts/mona-sans-light.ttf
-        - asset: assets/fonts/mona-sans-medium.ttf
-        - asset: assets/fonts/mona-sans-regular.ttf
-        - asset: assets/fonts/mona-sans.ttf
+  # fonts:
+  #   - family: Mona
+  #     fonts:
+  #       # - asset: assets/fonts/
+  #       - asset: assets/fonts/mona-sans-bold.ttf
+  #       - asset: assets/fonts/mona-sans-light.ttf
+  #       - asset: assets/fonts/mona-sans-medium.ttf
+  #       - asset: assets/fonts/mona-sans-regular.ttf
+  #       - asset: assets/fonts/mona-sans.ttf

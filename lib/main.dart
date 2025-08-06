@@ -1,8 +1,8 @@
 // Flutter imports:
 
 // Flutter imports:
-import 'package:xpert_funding_test/src/core/config/exceptions/overall_app_error.dart';
-
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -15,6 +15,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
 import 'package:xpert_funding_test/firebase_options.dart';
+import 'package:xpert_funding_test/src/core/config/exceptions/overall_app_error.dart';
 import 'package:xpert_funding_test/src/core/device_features/device_feature_exports.dart';
 import 'package:xpert_funding_test/src/core/helpers/helper_functions.dart';
 import 'package:xpert_funding_test/src/core/router/router.dart';
@@ -22,7 +23,6 @@ import 'package:xpert_funding_test/src/core/services/local_storage.dart/local_st
 import 'package:xpert_funding_test/src/core/utils/app_utils_exports.dart';
 import 'package:xpert_funding_test/src/core/utils/theme/theme_notifier/theme_notifier.dart';
 import 'package:xpert_funding_test/src/general_widgets/general_widget_exports.dart';
-import 'package:xpert_funding_test/src/core/device_features/device_feature_exports.dart';
 
 // Add a navigator key to access navigation state globally
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
@@ -42,7 +42,16 @@ void main() async {
   await Hive.openBox(LocalStoreKeysManger.appBox.rawValue);
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   AppErrorLog.init();
-  runApp(const ProviderScope(child: MyApp()));
+  runApp(
+    ProviderScope(
+      child: DevicePreview(
+        enabled: kDebugMode,
+        builder: (context) {
+          return MyApp();
+        },
+      ),
+    ),
+  );
 }
 
 class MyApp extends ConsumerStatefulWidget {
@@ -104,7 +113,6 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
             ),
             initialRoute: AppRouter.splashScreen,
             onGenerateRoute: AppRouter.onGenerateRoute, //!Localization setup
-
             /// Call the provideer to get the locale
             ///locale: viewModel.locale ?? const Locale('en'),
           ),

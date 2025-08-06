@@ -1,6 +1,8 @@
 // Flutter imports:
-import 'package:xpert_funding_test/src/core/utils/app_utils_exports.dart';
 import 'package:flutter/material.dart';
+
+// Project imports:
+import 'package:xpert_funding_test/src/core/utils/app_utils_exports.dart';
 
 class AppTheme {
   static final lightTheme = ThemeData(

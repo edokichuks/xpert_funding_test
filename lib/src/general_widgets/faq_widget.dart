@@ -1,11 +1,12 @@
 // Flutter imports:
-import 'package:xpert_funding_test/src/core/extensions/theme_extensions.dart';
-import 'package:xpert_funding_test/src/general_widgets/general_widget_exports.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
+// Project imports:
+import 'package:xpert_funding_test/src/core/extensions/theme_extensions.dart';
+import 'package:xpert_funding_test/src/general_widgets/general_widget_exports.dart';
 
 // ignore: must_be_immutable
 class FaqWidget extends StatefulWidget {

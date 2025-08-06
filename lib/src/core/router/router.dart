@@ -2,8 +2,10 @@
 import 'package:flutter/cupertino.dart';
 
 // Project imports:
-import 'package:xpert_funding_test/src/features/bottom_nav/presentation/app_bottom_nav_bar.dart';
 import 'package:xpert_funding_test/src/features/account/views/splash_screen.dart';
+
+// Project imports:
+
 
 class AppRouter {
   static const String login = '/login';
@@ -20,10 +22,6 @@ class AppRouter {
       //   return _trasnsitionRouter(
       //       screenWidget:
       //           ConfirmTranscriptionpinScreen(transactionPin: transactionPin));
-
-      //BOTTOM NAV BAR
-      case bottomNavBar:
-        return _trasnsitionRouter(screenWidget: const AppBottomNavScreen());
 
       default:
         throw UnimplementedError('Route not found');

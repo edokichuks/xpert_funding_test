@@ -1,12 +1,17 @@
 // Flutter imports:
-import 'package:gradient_borders/box_borders/gradient_box_border.dart';
-import 'package:xpert_funding_test/src/core/utils/app_utils_exports.dart';
-import 'package:xpert_funding_test/src/general_widgets/faq_widget.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+// Project imports:
+import 'package:xpert_funding_test/src/core/utils/app_utils_exports.dart';
+import 'package:xpert_funding_test/src/features/account/data/account_service.dart';
+import 'package:xpert_funding_test/src/features/account/widgets/account_widget.dart';
+import 'package:xpert_funding_test/src/general_widgets/faq_widget.dart';
+import 'package:xpert_funding_test/src/general_widgets/general_widget_exports.dart';
 
 // Project imports:
 
@@ -37,6 +42,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final accounts = AccountService.getDummyAccounts();
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -50,31 +56,9 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                height: 274.h,
+              Spacing.heightL(),
 
-                width: 343.w,
-                padding: EdgeInsets.all(16.r),
-
-                decoration: BoxDecoration(
-                  // color: Colors.white,
-                  borderRadius: BorderRadius.circular(14.r),
-                  border: GradientBoxBorder(
-                    gradient: LinearGradient(
-                      colors: [
-                        Color(0xffFFFFFF).withValues(alpha: 0.3),
-                        Color(0xffFFFFFF).withValues(alpha: 0.0),
-                      ],
-                    ),
-                    width: 1.14,
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color(0xff00000040).withValues(alpha: 0.25),
-                    ),
-                  ],
-                ),
-              ),
+              ...accounts.map((account) => AccountCard(account: account)),
             ],
           ),
         ),
