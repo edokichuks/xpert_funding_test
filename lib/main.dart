@@ -45,7 +45,8 @@ void main() async {
   runApp(
     ProviderScope(
       child: DevicePreview(
-        enabled: kDebugMode,
+        // enabled: kDebugMode,
+        enabled: false,
         builder: (context) {
           return MyApp();
         },
@@ -111,7 +112,7 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
             scrollBehavior: const ScrollBehavior().copyWith(
               physics: const BouncingScrollPhysics(),
             ),
-            initialRoute: AppRouter.splashScreen,
+            initialRoute: AppRouter.accountScreen,
             onGenerateRoute: AppRouter.onGenerateRoute, //!Localization setup
             /// Call the provideer to get the locale
             ///locale: viewModel.locale ?? const Locale('en'),

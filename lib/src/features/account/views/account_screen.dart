@@ -15,14 +15,14 @@ import 'package:xpert_funding_test/src/general_widgets/general_widget_exports.da
 
 // Project imports:
 
-class SplashScreen extends ConsumerStatefulWidget {
-  const SplashScreen({super.key});
+class AccountScreen extends ConsumerStatefulWidget {
+  const AccountScreen({super.key});
 
   @override
-  ConsumerState<SplashScreen> createState() => _SplashScreenState();
+  ConsumerState<AccountScreen> createState() => _AccountScreenState();
 }
 
-class _SplashScreenState extends ConsumerState<SplashScreen> {
+class _AccountScreenState extends ConsumerState<AccountScreen> {
   @override
   void initState() {
     super.initState();
