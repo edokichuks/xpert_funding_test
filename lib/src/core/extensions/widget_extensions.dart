@@ -66,8 +66,8 @@ extension WidgetExtension on Widget {
             itemCount: 10,
             itemBuilder: (context, index) {
               return Container(
-                decoration: const BoxDecoration(
-                  color: Colors.grey,
+                decoration: BoxDecoration(
+                  color: Colors.white,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(8),
                     topRight: Radius.circular(8),

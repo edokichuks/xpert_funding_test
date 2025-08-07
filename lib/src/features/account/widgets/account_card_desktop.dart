@@ -130,7 +130,7 @@ class AccountCardDesktop extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.w),
             child: Text(
-              "\$${account.size?.toStringAsFixed(0) ?? '0'}",
+              "\$${account.size ?? '0'}",
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 24.sp,
@@ -152,7 +152,7 @@ class AccountCardDesktop extends StatelessWidget {
                     text: 'Balance : ',
                     children: [
                       TextSpan(
-                        text: '\$${account.balance?.toStringAsFixed(0)}',
+                        text: '\$${account.balance}',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 17.sp,

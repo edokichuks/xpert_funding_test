@@ -169,7 +169,7 @@ class AccountCardMobile extends StatelessWidget {
           SizedBox(height: 8.h),
 
           Text(
-            "\$${account.size?.toStringAsFixed(0) ?? '0'}",
+            "\$${account.size ?? '0'}",
             style: TextStyle(
               color: Colors.white,
               fontSize: 24.sp,
@@ -184,7 +184,7 @@ class AccountCardMobile extends StatelessWidget {
               text: 'Balance :',
               children: [
                 TextSpan(
-                  text: ' \$${account.balance?.toStringAsFixed(0)}',
+                  text: ' \$${account.balance}',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 15.sp,
