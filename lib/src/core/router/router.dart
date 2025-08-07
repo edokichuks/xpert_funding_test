@@ -1,7 +1,8 @@
 // Flutter imports:
 import 'package:flutter/cupertino.dart';
-import 'package:xpert_funding_test/src/features/account/views/account_screen.dart';
 
+// Project imports:
+import 'package:xpert_funding_test/src/features/account/views/account_screen.dart';
 
 // Project imports:
 

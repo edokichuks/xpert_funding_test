@@ -3,18 +3,16 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:xpert_funding_test/src/core/extensions/extension_exports.dart';
-import 'package:xpert_funding_test/src/core/helpers/helper_functions.dart';
 
 // Project imports:
+import 'package:xpert_funding_test/src/core/extensions/extension_exports.dart';
+import 'package:xpert_funding_test/src/core/helpers/helper_functions.dart';
 import 'package:xpert_funding_test/src/core/utils/app_utils_exports.dart';
 import 'package:xpert_funding_test/src/features/account/data/account_service.dart';
 import 'package:xpert_funding_test/src/features/account/domain/models/account_model.dart';
 import 'package:xpert_funding_test/src/features/account/widgets/account_card_desktop.dart';
 import 'package:xpert_funding_test/src/features/account/widgets/account_card_mobile.dart';
-import 'package:xpert_funding_test/src/general_widgets/faq_widget.dart';
 import 'package:xpert_funding_test/src/general_widgets/general_widget_exports.dart';
 
 // Project imports:
@@ -68,15 +66,17 @@ class _AccountScreenState extends ConsumerState<AccountScreen> {
             padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 32.h),
             child: desktop
                 ? ShimmerLoading(
-                  isLoading: isLoading,
-                  child: Wrap(
+                    isLoading: isLoading,
+                    child: Wrap(
                       spacing: 20.w,
                       runSpacing: 20.h,
                       children: accounts
-                          .map((account) => AccountCardDesktop(account: account))
+                          .map(
+                            (account) => AccountCardDesktop(account: account),
+                          )
                           .toList(),
                     ).withLoadingGrid(isLoading: isLoading),
-                )
+                  )
                 :
                   // isLoading
                   // ? Center(child: AppCircularProgressIndicator())
@@ -87,6 +87,7 @@ class _AccountScreenState extends ConsumerState<AccountScreen> {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        Spacing.heightL(),
                         ...accounts.map(
                           (account) => AccountCardMobile(account: account),
                         ),

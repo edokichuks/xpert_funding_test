@@ -1,11 +1,10 @@
 // Flutter imports:
 
 // Flutter imports:
-import 'package:device_preview/device_preview.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -33,8 +32,8 @@ void main() async {
   runApp(
     ProviderScope(
       child: DevicePreview(
-        enabled: kDebugMode,
-        // enabled: false,
+        // enabled: kDebugMode,
+        enabled: false,
         builder: (context) {
           return MyApp();
         },
@@ -83,9 +82,7 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
               physics: const BouncingScrollPhysics(),
             ),
             initialRoute: AppRouter.accountScreen,
-            onGenerateRoute: AppRouter.onGenerateRoute, //!Localization setup
-            /// Call the provideer to get the locale
-            ///locale: viewModel.locale ?? const Locale('en'),
+            onGenerateRoute: AppRouter.onGenerateRoute,
           ),
         );
       },
