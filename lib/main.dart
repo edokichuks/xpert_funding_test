@@ -45,8 +45,8 @@ void main() async {
   runApp(
     ProviderScope(
       child: DevicePreview(
-        // enabled: kDebugMode,
-        enabled: false,
+        enabled: kDebugMode,
+        // enabled: false,
         builder: (context) {
           return MyApp();
         },

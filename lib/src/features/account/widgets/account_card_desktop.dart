@@ -10,29 +10,29 @@ import 'package:xpert_funding_test/src/core/utils/app_utils_exports.dart';
 import 'package:xpert_funding_test/src/features/account/domain/models/account_model.dart';
 import 'package:xpert_funding_test/src/general_widgets/general_widget_exports.dart';
 
-class AccountCard extends StatelessWidget {
+class AccountCardDesktop extends StatelessWidget {
   final AccountModel account;
 
-  const AccountCard({super.key, required this.account});
+  const AccountCardDesktop({super.key, required this.account});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 16.h),
+      width: 500.w, // Desktop wider card
       padding: EdgeInsets.all(16.r),
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(AppImages.topshadow),
           fit: BoxFit.cover,
         ),
-        color: Colors.white.withValues(alpha: .05),
+        color: Colors.white.withOpacity(0.05),
         borderRadius: BorderRadius.circular(14.r),
         border: GradientBoxBorder(
           width: 1.14.r,
           gradient: LinearGradient(
             colors: [
-              Color(0xffFFFFFF).withValues(alpha: 0.3),
-              Color(0xffFFFFFF).withValues(alpha: 0.0),
+              Color(0xffFFFFFF).withOpacity(0.3),
+              Color(0xffFFFFFF).withOpacity(0.0),
             ],
           ),
         ),
@@ -67,47 +67,6 @@ class AccountCard extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(width: 8.w),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [
-                      Color(0xff5865F2),
-                      Color(0xff5865F2).withValues(alpha: 0.4),
-                    ],
-                  ),
-                  border: GradientBoxBorder(
-                    width: 1,
-                    gradient: LinearGradient(
-                      colors: [
-                        Color(0xff5865F2),
-                        Color(0xff5865F2).withValues(alpha: 0.2),
-                        Color(0xff5865F2).withValues(alpha: 0.2),
-                      ],
-                    ),
-                  ),
-                  borderRadius: BorderRadius.circular(12.r),
-                ),
-                child: Row(
-                  children: [
-                    AppImageView(
-                      svgPath: AppImages.evaluate,
-                      width: 13.r,
-                      height: 13.r,
-                    ),
-                    Spacing.width(6.w),
-                    Text(
-                      account.currentPhase == 0
-                          ? "Master Account"
-                          : "Evaluation 1",
-                      style: TextStyle(color: Colors.white, fontSize: 12.sp),
-                    ),
-                  ],
-                ),
-              ),
             ],
           ),
 
@@ -132,14 +91,11 @@ class AccountCard extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8.r),
                     gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
                       colors: [
-                        Color(0xff0249FE).withValues(alpha: 0.3),
-                        Color(0xff80A4FE).withValues(alpha: 0.3),
+                        Color(0xff0249FE).withOpacity(0.3),
+                        Color(0xff80A4FE).withOpacity(0.3),
                       ],
                     ),
-
                     border: GradientBoxBorder(
                       width: 1.14,
                       gradient: LinearGradient(
@@ -174,90 +130,69 @@ class AccountCard extends StatelessWidget {
 
           SizedBox(height: 16.h),
 
+          // Balance, Bought Date, ID
           Text.rich(
             TextSpan(
-              text: 'Balance :',
+              text: 'Balance : ',
               children: [
                 TextSpan(
-                  text: ' \$${account.balance?.toStringAsFixed(0)}',
+                  text: '\$${account.balance?.toStringAsFixed(0)}',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 15.sp,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
               ],
             ),
-            style: TextStyle(
-              color: Colors.white.withValues(alpha: 0.6),
-              fontSize: 15.sp,
-              fontWeight: FontWeight.w400,
+            style: TextStyle(color: Colors.white.withOpacity(0.6)),
+          ),
+
+          SizedBox(height: 6.h),
+
+          Text.rich(
+            TextSpan(
+              text: 'Bought : ',
+              children: [
+                TextSpan(
+                  text:
+                      ' ${account.createdAt != null ? "${account.createdAt!.month}/${account.createdAt!.day}/${account.createdAt!.year}" : ''}',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ],
             ),
+            style: TextStyle(color: Colors.white.withOpacity(0.6)),
           ),
-          Spacing.heightS(),
 
-          Row(
-            children: [
-              Text.rich(
+          SizedBox(height: 6.h),
+
+          Text.rich(
+            TextSpan(
+              text: 'ID : ',
+              children: [
                 TextSpan(
-                  text: 'Bought :',
-                  children: [
-                    TextSpan(
-                      text:
-                          ' ${account.createdAt != null ? "${account.createdAt!.month}/${account.createdAt!.day}/${account.createdAt!.year}" : ''}',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15.sp,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ],
+                  text: ' ${account.id ?? ''}',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
-                style: TextStyle(
-                  color: Colors.white.withValues(alpha: 0.6),
-                  fontSize: 15.sp,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-
-              Spacing.widthXS(),
-              Icon(
-                Icons.info_outline,
-                color: Colors.white.withOpacity(0.3),
-                size: 20,
-              ),
-            ],
+              ],
+            ),
+            style: TextStyle(color: Colors.white.withOpacity(0.6)),
           ),
-          Spacing.heightS(),
 
+          SizedBox(height: 16.h),
+
+          // Phase Badges - Desktop only
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text.rich(
-                TextSpan(
-                  text: 'ID :',
-                  children: [
-                    TextSpan(
-                      text: ' ${account.id ?? ''}',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15.sp,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ],
-                ),
-                style: TextStyle(
-                  color: Colors.white.withValues(alpha: 0.6),
-                  fontSize: 15.sp,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-              Spacing.widthXS(),
-              Icon(
-                Icons.info_outline,
-                color: Colors.white.withOpacity(0.3),
-                size: 20,
-              ),
+              _phaseBadge("Evaluation 1"),
+              _phaseBadge("Evaluation 2"),
+              _phaseBadge("Master Account", isMaster: true),
             ],
           ),
 
@@ -265,9 +200,8 @@ class AccountCard extends StatelessWidget {
 
           // Dashboard button
           Container(
-            width: 311.w,
+            width: double.infinity,
             height: 32.h,
-
             padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 16.w),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8.r),
@@ -281,10 +215,8 @@ class AccountCard extends StatelessWidget {
                 ),
               ),
             ),
-
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 AppImageView(
                   margin: EdgeInsets.only(top: 2),
@@ -301,6 +233,39 @@ class AccountCard extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _phaseBadge(String text, {bool isMaster = false}) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
+      decoration: BoxDecoration(
+        color: isMaster
+            ? Color(0xff5865F2).withOpacity(0.2)
+            : Color(0xff11285F),
+        borderRadius: BorderRadius.circular(12.r),
+      ),
+      child: Row(
+        children: [
+          if (isMaster)
+            AppImageView(svgPath: AppImages.lock, width: 13.r, height: 13.r)
+          else
+            AppImageView(
+              svgPath: AppImages.evaluate,
+              width: 13.r,
+              height: 13.r,
+            ),
+          Spacing.width(6.w),
+          Text(
+            text,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 12.sp,
+              fontWeight: FontWeight.w500,
             ),
           ),
         ],

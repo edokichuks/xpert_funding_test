@@ -3,6 +3,7 @@ import 'dart:async';
 import 'dart:io';
 
 // Package imports:
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class HelperFunctions {
@@ -40,6 +41,8 @@ class HelperFunctions {
       }
     });
   }
+
+bool isDesktop(BuildContext context) => MediaQuery.of(context).size.width > 800;
 
   activateTimer({required bool dispose}) async {
     // final user = await UserStoreManager.getSavedUser();
