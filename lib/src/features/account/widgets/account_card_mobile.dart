@@ -273,7 +273,7 @@ class AccountCardMobile extends StatelessWidget {
             width: 311.w,
             height: 32.h,
 
-            padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 16.w),
+            padding: EdgeInsets.symmetric(vertical: 6.h, horizontal: 16.w),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8.r),
               color: Colors.white,
@@ -302,7 +302,8 @@ class AccountCardMobile extends StatelessWidget {
                   'Dashboard',
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
-                    fontSize: 14.sp,
+                    fontSize: 14,
+                    color: Colors.black,
                   ),
                 ),
               ],

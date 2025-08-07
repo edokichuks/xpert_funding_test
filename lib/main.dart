@@ -68,6 +68,7 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
       // designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
+      
       builder: (context, widget) {
         return Listener(
           onPointerDown: (event) {},

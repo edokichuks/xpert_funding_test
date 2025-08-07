@@ -263,7 +263,7 @@ class AccountCardDesktop extends StatelessWidget {
           // Dashboard button
           Container(
             width: double.infinity,
-            height: 48,
+            height: 54,
             margin: EdgeInsets.symmetric(horizontal: 16),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
@@ -289,7 +289,11 @@ class AccountCardDesktop extends StatelessWidget {
                 Spacing.widthS(),
                 Text(
                   'Dashboard',
-                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14),
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14,
+                    color: Colors.black,
+                  ),
                 ),
               ],
             ),
