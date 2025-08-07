@@ -49,8 +49,6 @@ class _AccountScreenState extends ConsumerState<AccountScreen> {
   Widget build(BuildContext context) {
     final bool desktop = HelperFunctions().isDesktop(context);
 
-    debugLog('is deskop => $desktop');
-    debugLog('is loading => $isLoading');
     return Shimmer(
       linearGradient: shimmerGradient,
       child: Scaffold(
@@ -67,21 +65,21 @@ class _AccountScreenState extends ConsumerState<AccountScreen> {
             child: desktop
                 ? ShimmerLoading(
                     isLoading: isLoading,
-                    child: Wrap(
-                      spacing: 20.w,
-                      runSpacing: 20.h,
-                      children: accounts
-                          .map(
-                            (account) => AccountCardDesktop(account: account),
-                          )
-                          .toList(),
+                    child: GridView.builder(
+                      itemCount: accounts.length,
+                      physics: NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        mainAxisSpacing: 16,
+                        crossAxisSpacing: 16,
+                        childAspectRatio: 632 / 307,
+                      ),
+                      itemBuilder: (_, i) =>
+                          AccountCardDesktop(account: accounts[i]),
                     ).withLoadingGrid(isLoading: isLoading),
                   )
-                :
-                  // isLoading
-                  // ? Center(child: AppCircularProgressIndicator())
-                  // :
-                  ShimmerLoading(
+                : ShimmerLoading(
                     isLoading: isLoading,
                     child: Column(
                       mainAxisSize: MainAxisSize.max,

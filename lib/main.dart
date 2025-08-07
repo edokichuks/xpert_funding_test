@@ -65,7 +65,7 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
     final appTheme = ref.watch(themeProvider);
     return ScreenUtilInit(
       useInheritedMediaQuery: true,
-      designSize: const Size(375, 812),
+      // designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, widget) {

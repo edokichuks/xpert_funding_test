@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 
 // Project imports:
@@ -18,17 +17,18 @@ class AccountCardDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 632.w,
-      padding: EdgeInsets.symmetric(vertical: 16.h),
+      width: 632,
+      // height: 307,
+      padding: EdgeInsets.symmetric(vertical: 16),
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(AppImages.topshadow),
           fit: BoxFit.cover,
         ),
         color: Colors.white.withOpacity(0.05),
-        borderRadius: BorderRadius.circular(14.r),
+        borderRadius: BorderRadius.circular(14),
         border: GradientBoxBorder(
-          width: 1.14.r,
+          width: 1.14,
           gradient: LinearGradient(
             colors: [
               Color(0xffFFFFFF).withOpacity(0.3),
@@ -42,7 +42,7 @@ class AccountCardDesktop extends StatelessWidget {
         children: [
           // Top Badges
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            padding: EdgeInsets.symmetric(horizontal: 16),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -53,20 +53,20 @@ class AccountCardDesktop extends StatelessWidget {
                       account.accountName ?? '',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 14.sp,
+                        fontSize: 14,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
                     Spacing.width(11),
                     if (account.isProAccount == true) ...[
-                      SizedBox(width: 6.w),
+                      SizedBox(width: 6),
                       Container(
                         padding: EdgeInsets.symmetric(
-                          horizontal: 6.w,
-                          vertical: 2.h,
+                          horizontal: 6,
+                          vertical: 2,
                         ),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(800.r),
+                          borderRadius: BorderRadius.circular(800),
                           gradient: LinearGradient(
                             colors: [
                               Color(0xff0249FE).withOpacity(0.3),
@@ -85,7 +85,7 @@ class AccountCardDesktop extends StatelessWidget {
                           child: AppImageView(
                             svgPath: AppImages.pro,
                             width: 24,
-                            height: 17,
+                            height: 16,
 
                             fit: BoxFit.cover,
                           ),
@@ -95,10 +95,7 @@ class AccountCardDesktop extends StatelessWidget {
                   ],
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 10.w,
-                    vertical: 3.h,
-                  ),
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 3),
                   decoration: BoxDecoration(
                     color: account.currentPhase == 0
                         ? Color(0xff053321)
@@ -108,7 +105,7 @@ class AccountCardDesktop extends StatelessWidget {
                           ? Color(0xff75DFA7)
                           : Color(0xff80A4FE),
                     ),
-                    borderRadius: BorderRadius.circular(1200.r),
+                    borderRadius: BorderRadius.circular(1200),
                   ),
                   child: Text(
                     account.currentPhase == 0 ? "Funded" : "On Challenge",
@@ -116,7 +113,7 @@ class AccountCardDesktop extends StatelessWidget {
                       color: account.currentPhase == 0
                           ? Color(0xff75DFA7)
                           : Color(0xff80A4FE),
-                      fontSize: 12.sp,
+                      fontSize: 12,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -125,27 +122,26 @@ class AccountCardDesktop extends StatelessWidget {
             ),
           ),
 
-          SizedBox(height: 8.h),
+          SizedBox(height: 8),
 
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            padding: EdgeInsets.symmetric(horizontal: 16),
             child: Text(
               "\$${account.size ?? '0'}",
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 24.sp,
+                fontSize: 24,
                 fontWeight: FontWeight.w800,
               ),
             ),
           ),
 
-          SizedBox(height: 8.h),
+          SizedBox(height: 8),
 
-          // Balance, Bought Date, ID
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            padding: EdgeInsets.symmetric(horizontal: 16),
             child: Row(
-              spacing: 12,
+              spacing: 8,
               children: [
                 Text.rich(
                   TextSpan(
@@ -155,7 +151,7 @@ class AccountCardDesktop extends StatelessWidget {
                         text: '\$${account.balance}',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 17.sp,
+                          fontSize: 14,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
@@ -163,12 +159,12 @@ class AccountCardDesktop extends StatelessWidget {
                   ),
                   style: TextStyle(
                     color: Colors.white.withOpacity(0.6),
-                    fontSize: 17.sp,
+                    fontSize: 14,
                   ),
                 ),
                 Icon(
                   Icons.circle,
-                  size: 10.r,
+                  size: 8,
                   color: Colors.white.withOpacity(0.8),
                 ),
 
@@ -184,13 +180,13 @@ class AccountCardDesktop extends StatelessWidget {
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w700,
-                              fontSize: 17.sp,
+                              fontSize: 14,
                             ),
                           ),
                         ],
                       ),
                       style: TextStyle(
-                        fontSize: 17.sp,
+                        fontSize: 14,
                         color: Colors.white.withOpacity(0.6),
                       ),
                     ),
@@ -199,13 +195,13 @@ class AccountCardDesktop extends StatelessWidget {
                     Icon(
                       Icons.info_outline,
                       color: Colors.white.withOpacity(0.3),
-                      size: 20,
+                      size: 14,
                     ),
                   ],
                 ),
                 Icon(
                   Icons.circle,
-                  size: 10.r,
+                  size: 8,
                   color: Colors.white.withOpacity(0.8),
                 ),
 
@@ -220,13 +216,13 @@ class AccountCardDesktop extends StatelessWidget {
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w700,
-                              fontSize: 17.sp,
+                              fontSize: 14,
                             ),
                           ),
                         ],
                       ),
                       style: TextStyle(
-                        fontSize: 17.sp,
+                        fontSize: 14,
                         color: Colors.white.withOpacity(0.6),
                       ),
                     ),
@@ -234,7 +230,7 @@ class AccountCardDesktop extends StatelessWidget {
                     Icon(
                       Icons.info_outline,
                       color: Colors.white.withOpacity(0.3),
-                      size: 20,
+                      size: 14,
                     ),
                   ],
                 ),
@@ -242,16 +238,16 @@ class AccountCardDesktop extends StatelessWidget {
             ),
           ),
 
-          SizedBox(height: 18.h),
+          SizedBox(height: 18),
 
           Container(
-            // height: 60.h,
-            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 11.h),
+            // height: 60,
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 11),
             decoration: BoxDecoration(
               color: Colors.white.withValues(alpha: 0.05),
             ),
             child: Row(
-              spacing: 12.w,
+              spacing: 12,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -262,15 +258,15 @@ class AccountCardDesktop extends StatelessWidget {
             ),
           ),
 
-          SizedBox(height: 16.h),
+          SizedBox(height: 16),
 
           // Dashboard button
           Container(
             width: double.infinity,
-            height: 48.h,
-            margin: EdgeInsets.symmetric(horizontal: 16.w),
+            height: 48,
+            margin: EdgeInsets.symmetric(horizontal: 16),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8.r),
+              borderRadius: BorderRadius.circular(8),
               color: Colors.white,
               // gradient: LinearGradient(
               //   colors: [Colors.white, Color(0xffCCDBFF)],
@@ -293,10 +289,7 @@ class AccountCardDesktop extends StatelessWidget {
                 Spacing.widthS(),
                 Text(
                   'Dashboard',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 14.sp,
-                  ),
+                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14),
                 ),
               ],
             ),
@@ -308,7 +301,7 @@ class AccountCardDesktop extends StatelessWidget {
 
   Widget _phaseBadge(String text, {bool isMaster = false}) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
+      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
       decoration: BoxDecoration(
         color: isMaster ? Color(0xff4652BB) : null,
         gradient: isMaster
@@ -331,24 +324,20 @@ class AccountCardDesktop extends StatelessWidget {
             ],
           ),
         ),
-        borderRadius: BorderRadius.circular(12.r),
+        borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
         children: [
           if (isMaster)
-            AppImageView(svgPath: AppImages.lock, width: 16.r, height: 16.r)
+            AppImageView(svgPath: AppImages.lock, width: 16, height: 16)
           else
-            AppImageView(
-              svgPath: AppImages.evaluate,
-              width: 16.r,
-              height: 16.r,
-            ),
-          Spacing.width(6.w),
+            AppImageView(svgPath: AppImages.evaluate, width: 16, height: 16),
+          Spacing.width(6),
           Text(
             text,
             style: TextStyle(
               color: Colors.white,
-              fontSize: 12.sp,
+              fontSize: 12,
               fontWeight: FontWeight.w500,
             ),
           ),

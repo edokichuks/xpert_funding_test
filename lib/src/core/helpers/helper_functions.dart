@@ -45,7 +45,7 @@ class HelperFunctions {
   }
 
   bool isDesktop(BuildContext context) =>
-      MediaQuery.of(context).size.width > 800;
+      MediaQuery.of(context).size.width > 1200;
 
   activateTimer({required bool dispose}) async {
     // final user = await UserStoreManager.getSavedUser();
